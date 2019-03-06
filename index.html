@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Coding Lessons</title>
+  <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+  <h1 class="c title">HTML & CSS Basics</h1>
+  <p class="c lesson-para">The following lesson will explain a few basic points about how HTML and CSS work together.
+    You will learn about the fundamentals of HTML elements and the basics of CSS styling.<br><br>
+    We will start with HTML. Below is the simple structure of an empty .html file before anything is added.
+  </p><br>
+  <figure class="c code-figure">
+    <pre>
+      <code>
+        &lt;html>
+
+        &lt;head> &lt;/head>
+
+        &lt;body> &lt;/body>
+
+        &lt;/html>
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">All the contents of an html file are stored within the
+    'html' and '/html' tags. The 'head' element contains data about the HTML document
+    and it also stores links to files that interact with the html, like CSS and JavaScript files.<br><br>
+    We will talk more about the other uses of the html head later but for now we will treat it as
+    the place that contains a title and a link to a CSS file called "style.css". This is shown below.
+  </p><br>
+
+  <figure class="c code-figure">
+    <pre>
+      <code>
+        &lt;html>
+
+        &lt;head>
+            &lt;title>Cam rules!&lt;/title>
+            &lt;link href="style.css" rel="stylesheet" type="text/css">
+        &lt;/head>
+
+        &lt;body> &lt;/body>
+
+        &lt;/html>
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">Now let's move on to the 'body' element. The body contains all the
+    visible components of an html file. Let's add an h1 (header) element to the body and give it some text "かば".
+  </p><br>
+
+  <figure class="c code-figure">
+    <pre>
+      <code>
+        &lt;html>
+
+        &lt;head>
+            &lt;title>Cam rules!&lt;/title>
+            &lt;link href="style.css" rel="stylesheet" type="text/css">
+        &lt;/head>
+
+        &lt;body>
+            &lt;h1>かば&lt;/h1>
+        &lt;/body>
+
+        &lt;/html>
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">All elements in the body can be assigned to an id or a class. The reason
+    for giving an element its own id or class is so that it is distinct from other elements on the page.
+    This helps when we edit (access) the element from a CSS or JavaScript file. Let's give the h1 element an id.
+  </p><br>
+
+  <figure class="c code-figure">
+    <pre>
+      <code>
+        &lt;html>
+
+        &lt;head>
+            &lt;title>Cam rules!&lt;/title>
+            &lt;link href="style.css" rel="stylesheet" type="text/css">
+        &lt;/head>
+
+        &lt;body>
+            &lt;h1 id="hippo">かば&lt;/h1>
+        &lt;/body>
+
+        &lt;/html>
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">If two elements share a class, they will get the same
+    styling from that class. The id overrides the class, so an id is useful for giving an element
+    separate styling from its class styling. This is shown below.
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>HTML</figcaption>
+    <pre>
+      <code>
+        &lt;html>
+
+        &lt;head>
+            &lt;title>Cam rules!&lt;/title>
+            &lt;link href="style.css" rel="stylesheet" type="text/css">
+        &lt;/head>
+
+        &lt;body>
+            &lt;h1 id="hippo" class="animal">かば&lt;/h1>
+            &lt;h1 id="giraffe" class="animal">キリン&lt;/h1>
+        &lt;/body>
+
+        &lt;/html>
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">Within the CSS file is where we define each class and id
+    styling. To style with CSS, classes and ids are given a specific property and key pair. In the
+    example below, the animal class (.animal) is given the following properties: position, display,
+    and margin. Each property is then given a value that is specific to that property.
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>CSS</figcaption>
+    <pre>
+      <code>
+        .animal {
+            position: relative;
+            display: block;
+            margin: 0 auto;
+        }
+
+        #hippo {
+            color: red;
+        }
+
+        #giraffe {
+            color: blue;
+        }
+      </code>
+    </pre>
+  </figure>
+  <p class="c lesson-para">The styling used for the animal class (position, display, margin) is a common way
+    to center elements within their container. Each h1 element is further defined
+    with its own id stying, by which we give #hippo a red font color and #giraffe a blue font color.
+  </p><br>
+
+  <p class="c lesson-para">
+  </p><br>
+
+  <p class="c lesson-para">Below is a list of some common HTML elements.<br>
+    <ul id="html-list">
+      <li>h1 - h5</li>
+      <li>div</li>
+      <li>img</li>
+      <li>a</li>
+      <li>p</li>
+      <li>ul & li</li>
+      <li>button</li>
+      <li>input</li>
+      <li>selection & option</li>
+    </ul>
+  </p><br>
+
+  <p class="c lesson-para">For this lessons practice, we will build a simple navigation bar.
+    Navigation bars are one of the first things that people see on a desktop website so it is a good
+    idea to understand how they are styled. From the list above, we will only be using the following
+    elements: h1, div, img, a, ul and li. These are the components that make up a basic navigation bar.
+    An example of what we will be building is shown below.<br><br>
+    <img src="example nav.jpg" id="example-nav"/>
+  </p><br>
+
+  <p class="c lesson-para">To start, we will make a div and give it a class of
+    "navigation-bar". All of our components for the navigation bar will be placed
+    inside of this div element. Generally it is a good idea to wrap elements that
+    group together visually to be wrapped within the same div.
+  </p><br>
+
+  <p class="c lesson-para">Inside of the main div (navigation-bar div) we will add
+    3 elements in the following order: img, h1, div. Give the img and h1 elements
+    and id of "home-logo" and "james-bond" respectively and give the div a class of
+    "nav-list-conatiner" as shown below.
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>HTML</figcaption>
+    <pre>
+      <code>
+        &lt;html>
+
+        &lt;head>
+          &lt;title>Example Navigation!&lt;/title>
+          &lt;link href="style.css" rel="stylesheet" type="text/css">
+        &lt;/head>
+
+        &lt;body>
+
+          &lt;div class="navigation-bar">
+              &lt;img id="home-logo"/>
+              &lt;h1 id="james-bond">James Bond&lt;/h1>
+              &lt;div class="nav-list-container">&lt;/div>
+          &lt;/div>
+
+        &lt;/body>
+
+        &lt;/html>
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">Within the div with class "nav-list-container" we will
+    create an unordered list that will contain our navigation links (a elements). We
+    will give the ul element a class of "nav-items-list" and each a element a class
+    of "navigation-link".
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>HTML</figcaption>
+    <pre>
+      <code>
+        &lt;html>
+
+        &lt;head>
+          &lt;title>Example Navigation!&lt;/title>
+          &lt;link href="style.css" rel="stylesheet" type="text/css">
+        &lt;/head>
+
+        &lt;body>
+
+          &lt;div class="navigation-bar">
+              &lt;img id="home-logo"/>
+              &lt;h1 id="james-bond">James Bond&lt;/h1>
+              &lt;div class="nav-list-container">
+                  &lt;ul class="nav-items-list">
+                      &lt;li>
+                          &lt;a class="navigation-link">About</a>
+                      &lt;/li>
+                      &lt;li>
+                          &lt;a class="navigation-link">Products</a>
+                      &lt;/li>
+                      &lt;li>
+                          &lt;a class="navigation-link">Login</a>
+                      &lt;/li>
+                      &lt;li>
+                          &lt;a class="navigation-link">Contact</a>
+                      &lt;/li>
+                  &lt;/ul>
+              &lt;/div>
+          &lt;/div>
+
+        &lt;/body>
+
+        &lt;/html>
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">Now we are almost done with the HTML. There are just
+    a few things we need to add to our img and a elements. An img element has an
+    attribute called "src" which is assigned to the actual image file. In this case
+    we will use the address of a logo I have on a different site (https://crealu.github.io/photaero/img/logo.jpg).
+  </p><br>
+
+  <p class="c lesson-para">Ususally an 'a' element gets whats called an "href" attribute.
+    This attribute tells the webpage where to navigate to when the 'a' element is clicked on. For now
+    we will set the href equal to empty quotes (""). These changes are shown below.
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>HTML</figcaption>
+    <pre>
+      <code>
+        &lt;html>
+
+        &lt;head>
+          &lt;title>Example Navigation!&lt;/title>
+          &lt;link href="style.css" rel="stylesheet" type="text/css">
+        &lt;/head>
+
+        &lt;body>
+
+          &lt;div class="navigation-bar">
+              &lt;img id="home-logo" src="https://crealu.github.io/photaero/img/logo.jpg"/>
+              &lt;h1 id="james-bond">James Bond&lt;/h1>
+              &lt;div class="nav-list-container">
+                  &lt;ul class="nav-items-list">
+                      &lt;li>
+                          &lt;a class="navigation-link" href="">About&lt;/a>
+                      &lt;/li>
+                      &lt;li>
+                          &lt;a class="navigation-link" href="">Products&lt;/a>
+                      &lt;/li>
+                      &lt;li>
+                          &lt;a class="navigation-link" href="">Login&lt;/a>
+                      &lt;/li>
+                      &lt;li>
+                          &lt;a class="navigation-link" href="">Contact&lt;/a>
+                      &lt;/li>
+                  &lt;/ul>
+              &lt;/div>
+          &lt;/div>
+
+        &lt;/body>
+
+        &lt;/html>
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">Now we'll start styling each element with the CSS. Firstly,
+    we will give the whole body the same font style to keep consistency. To do this, let's
+    give the body element a font-family of 'Helvetica' (a common web font).
+  </p><br>
+
+  <p class="c lesson-para">We will also style the "navigation-bar" class by giving it
+    a width of 100%, a height of 40px and a font color of #969696 (randomly chosen color). Giving
+    the navigation-bar div a width of 100% makes it stretch the width of the whole page
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>CSS</figcaption>
+    <pre>
+      <code>
+        body {
+            font-family: Helvetica;
+        }
+
+        .navigation-bar {
+            width: 100%;
+            height: 40px;
+            color: #969696;
+        }
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">Next we will style the #home-log and #james-bond elements.
+    We give each of these a position: relative; and a float: left; The position element
+    allows us to edit where the element is located and float left floats (or pushes) the div to align
+    to the left side.
+  </p><br>
+
+  <p class="c lesson-para">We give each of these elements a padding of 6px, too. Padding is used to give
+    elements space from one another so that they do not look crammed together. Finally we will give our img
+    elment a width of 40px to define its size. We give our h1 element a top value of -15px. This pushes the
+    h1 element upwards so that it aligns visually with the img element.
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>CSS</figcaption>
+    <pre>
+      <code>
+        body {
+            font-family: Helvetica;
+        }
+
+        .navigation-bar {
+            width: 100%;
+            height: 40px;
+            color: #969696;
+        }
+
+        #home-logo {
+          position: relative;
+          float: left;
+          padding: 6px;
+          width: 40px;
+        }
+
+        #james-bond {
+          position: relative;
+          float: left;
+          padding: 6px;
+          top: -15px;
+        }
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">Now we move onto our ul list. To start, we will give
+    our "nav-list-container" div a position of relative and float it to the right. This
+    pushes it to the right side of our navigation box.
+  </p><br>
+
+  <p class="c lesson-para">Next, we style the ul's li elements by using '.nav-items-list li'
+    in the CSS. This is a way to access an element that is contained within another element. The first
+    styling that we give here is a list-style-type of none. Then, we make the elements display inline
+    horizontally by giving their display property inline-block.
+  </p><br>
+
+  <p class="c lesson-para">We add padding to give each li element a bit more of spacing, as well.
+    For this element, the final thing is to align the text in the center of its container. We do this
+    by giving it a text-align of center.
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>CSS</figcaption>
+    <pre>
+      <code>
+        body {
+            font-family: Helvetica;
+        }
+
+        .navigation-bar {
+            width: 100%;
+            height: 40px;
+            color: #969696;
+        }
+
+        #home-logo {
+            position: relative;
+            float: left;
+            padding: 6px;
+            width: 40px;
+        }
+
+        #james-bond {
+            position: relative;
+            float: left;
+            padding: 6px;
+            top: -15px;
+        }
+
+        .nav-list-container {
+            position: relative;
+            float: right;
+        }
+
+        .nav-items-list li {
+            list-style-type: none;
+            display: inline-block;
+            padding-right: 8px;
+            padding-left: 8px;
+            text-align: center;
+        }
+      </code>
+    </pre>
+  </figure>
+
+  <p class="c lesson-para">Finally we give our navigation-link elements a font-size,
+    color, and text-decoration as shown below. The text-decoration is set to 'none' so that
+    we get rid of the link's underline. We set the font-size here to be 18 so that
+    it is a bit larger and easier to read.
+  </p><br>
+
+  <figure class="c code-figure">
+    <figcaption>CSS</figcaption>
+    <pre>
+      <code>
+        body {
+            font-family: Helvetica;
+        }
+
+        .navigation-bar {
+            width: 100%;
+            height: 40px;
+            color: #969696;
+        }
+
+        #home-logo {
+            position: relative;
+            float: left;
+            padding: 6px;
+            width: 40px;
+        }
+
+        #james-bond {
+            position: relative;
+            float: left;
+            padding: 6px;
+            top: -15px;
+        }
+
+        .nav-list-container {
+            position: relative;
+            float: right;
+        }
+
+        .nav-items-list li {
+            list-style-type: none;
+            display: inline-block;
+            padding-right: 8px;
+            padding-left: 8px;
+            text-align: center;
+        }
+
+        .navigation-link {
+            text-decoration: none;
+            color: #969696;
+            font-size: 18px;
+        }
+      </code>
+    </pre>
+  </figure>
+
+
+
+</body>
+</html>
